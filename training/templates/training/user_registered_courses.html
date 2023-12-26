@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <title>Registered Courses</title>
+    <style>
+
+        .headers{
+            color:#96292E;
+            font-weight: bolder;
+        }
+    </style>
+    <div class="container-fluid" style="margin-top: 60px">
+        <div class="row">
+        <div class="col-md-3 col-sm-12 col-xs-12"></div>
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Course</th>
+                      <th scope="col">Company</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Period</th>
+                      <th scope="col">Start Date</th>
+                      <th scope="col">End Date</th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for user_course in user_courses %}
+                    <tr>
+                      <td>{{ user_course.course.name }}</td>
+                      <td>{{ user_course.course.provider }}</td>
+                      <td>
+                    {% if user_course.course_pass == None %}
+                          <span class="badge bg-success">Enrolled</span>
+
+                      {% elif not user_course.course_pass %}
+                              <span class="badge bg-danger">Failed</span>
+
+                      {% else %}
+                          <span class="badge bg-success">Passed</span>
+                      {% endif %}
+                      </td>
+                        <td>{{ user_course.course.period }}</td>
+                        <td>{{ user_course.course.start_date }}</td>
+                        <td colspan="2">{{ user_course.course.end_date }}</td>
+                    {% if user_course.course_pass == None %}
+                        <td><a class="btn btn-danger" href="{% url 'training:quit_course' student_id=request.user.id course_name=user_course.course.name %}">Quit</a></td>
+                    {% endif %}
+                        <td><a class="btn btn-secondary" href="{% url 'training:get_course_detail' course_name=user_course.course.name %}">Show Course</a></td>
+
+                    </tr>
+
+                  {% endfor %}
+                  </tbody>
+                </table>
+            </div>
+            <div class="col-md-3 col-sm-12 col-xs-12"></div>
+        </div>
+    {% include 'messages.html' %}
+    </div>
+{% endblock %}

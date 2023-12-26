@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <div class="container home_body" style="max-height: 100%">
+        <h2 class="home_text_spacing">
+           {% trans "Hello" %} {{ user.username }}, {% trans "you are now a customer." %}
+                    <br><br><br>
+                        <h3 class="home_text_spacing">{% trans "Here's newest products to buy!" %}</h3>
+        </h2>
+                    <br><br><br>
+        <h3 class="home_text_spacing">{% trans "Join Us!" %}</h3>
+
+        <h4 class="home_text_spacing">“{% trans "Learn as if you were not reaching your goal and as though you were scared of missing it" %}</h4>
+
+
+
+
+
+
+    </div>
+        <div style="height: 212px"></div>
+
+{% endblock %}

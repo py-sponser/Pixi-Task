@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <div class="container text-center" style="text-align: center;width: 300px">
+        <br><br><br><br><br><br>
+        <h1>{% trans "Login" %}</h1><br><br>
+        <form method="POST" action="{% url 'accounts:user_login' %}" class="form-group text-center" >
+            {% csrf_token %}
+          <input style="color:#96292E;text-decoration: none;outline: #96292E;box-shadow: none;border-color: #CED4DA" type="text" id="inputEmail" class="form-control form-group me-2 " placeholder="{% trans 'Email' %}" required="" autofocus="" name="email"><br>
+
+          <input style="color:#96292E;text-decoration: none;outline: #96292E;box-shadow: none;border-color: #CED4DA" type="password" id="inputPassword" class="form-control form-group " placeholder="{% trans 'Password' %}" required="" name="password"><br>
+            <input type="checkbox" id="is_seller" name="is_seller">
+            <label for="is_seller">{% trans "I'm seller" %}</label>
+            <br><br>
+      <button class="btn btn-secondary "  style="width: 150px" type="submit">{% trans "Sign in" %}</button>
+        </form>
+        <br>
+    {% include 'messages.html' %}
+    </div>
+{% endblock %}

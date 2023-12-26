@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <title>Quit Course</title>
+    <div class="container">
+        <h1 style="padding:10px">Are you sure you want to quit your '{{ course_name }}' course?</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <a class="btn btn-secondary" href="{% url 'training:user_registered_courses' %}">Cancel</a>
+        <input class="btn btn-danger" value="Quit" type="submit">
+
+    </form>
+    {% include 'messages.html' %}
+    </div>
+{% endblock %}

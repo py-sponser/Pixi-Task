@@ -1,0 +1,197 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-26 16:06+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: accounts/templates/accounts/dashboard.html:9
+#: training/templates/training/cart.html:9
+#: training/templates/training/home.html:9
+msgid "Hello"
+msgstr "مرحبا"
+
+#: accounts/templates/accounts/dashboard.html:9
+msgid "you are now a seller"
+msgstr "انت الآن بائع"
+
+#: accounts/templates/accounts/dashboard.html:13
+msgid "Here's your dashboard!"
+msgstr "هذه هى لوحة التحكم الخاصة بك."
+
+#: accounts/templates/accounts/login.html:8 templates/base.html:84
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: accounts/templates/accounts/login.html:11
+msgid "Email"
+msgstr "البريد الإلكترونى"
+
+#: accounts/templates/accounts/login.html:13
+#: accounts/templates/accounts/register.html:32
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: accounts/templates/accounts/login.html:15
+msgid "I'm seller"
+msgstr "أنا بائع"
+
+#: accounts/templates/accounts/login.html:17
+msgid "Sign in"
+msgstr "تسجيل الدخول"
+
+#: accounts/templates/accounts/register.html:16
+msgid "First Name"
+msgstr "الإسم الأول"
+
+#: accounts/templates/accounts/register.html:19
+msgid "Last Name"
+msgstr "الإسم الأخير"
+
+#: accounts/templates/accounts/register.html:22
+msgid "Family Name"
+msgstr "اسم العائلة"
+
+#: accounts/templates/accounts/register.html:25
+msgid "Email address"
+msgstr "البريد الالكترونى"
+
+#: accounts/templates/accounts/register.html:28
+#: training/templates/training/profile.html:18
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#: accounts/templates/accounts/register.html:35
+msgid "Verify password"
+msgstr "تأكيد كلمة المرور"
+
+#: accounts/templates/accounts/register.html:39
+msgid "Select Department"
+msgstr "اختر تخصصك"
+
+#: accounts/templates/accounts/register.html:47 templates/base.html:87
+msgid "Register"
+msgstr "تسجيل حساب جديد"
+
+#: accounts/views.py:146
+msgid "Password length shouldn't be fewer than 9."
+msgstr "كلمة المرور لا يجب أن تكون اقل من 9 حروف"
+
+#: accounts/views.py:147
+msgid "Password length shouldn't be greater than 15."
+msgstr "كلمة المرور لا يجب أن تكون اكثر من 15 حرف"
+
+#: accounts/views.py:148
+msgid "Password should contain numbers."
+msgstr "يجب ان تحتوى كلمة المرور على ارقام"
+
+#: accounts/views.py:149
+msgid "Password should have contain capitalized letters."
+msgstr "يجب أن تحتوى كلمة المرور على حروف كبيرة"
+
+#: accounts/views.py:150 accounts/views.py:151
+msgid "Password should have lowercase letters."
+msgstr "يجب ان تحتوى كلمة المرور على حروف صغيرة"
+
+#: accounts/views.py:152
+msgid "Password should contain special characters, as !@#$%.. ."
+msgstr "يجب ان تحتوى كلمة المرور على رموز"
+
+#: templates/base.html:4
+msgid "ltr"
+msgstr "rtl"
+
+#: templates/base.html:50
+msgid "Home"
+msgstr "الصفحة الرئيسية"
+
+#: templates/base.html:54
+msgid "EN"
+msgstr "انجليزى"
+
+#: templates/base.html:57
+msgid "AR"
+msgstr "عربى"
+
+#: templates/base.html:62
+msgid "Cart"
+msgstr "العربة"
+
+#: templates/base.html:75
+msgid "Profile"
+msgstr "الصفحة الشخصية"
+
+#: templates/base.html:79
+msgid "Logout"
+msgstr "تسجيل خروج"
+
+#: training/templates/training/cart.html:10
+msgid "you are a customer."
+msgstr "أنت الآن مشترى"
+
+#: training/templates/training/cart.html:13
+msgid "Here's your Cart!"
+msgstr "هذه هى عربة طلباتك"
+
+#: training/templates/training/home.html:9
+msgid "you are now a customer."
+msgstr "انت الآن مشترى"
+
+#: training/templates/training/home.html:11
+msgid "Here's newest products to buy!"
+msgstr "هذه هى أحدث المنتجات للشراء"
+
+#: training/templates/training/home.html:14
+msgid "Join Us!"
+msgstr "اشترك معنا!"
+
+#: training/templates/training/home.html:16
+msgid ""
+"Learn as if you were not reaching your goal and as though you were scared of "
+"missing it"
+msgstr "تعلم وكأنك لم تصل لهدفك بعد وكأنك تخاف عدم اللحاق به."
+
+#: training/templates/training/profile.html:16
+msgid "ID"
+msgstr "رقم الهوية"
+
+#: training/templates/training/profile.html:17
+msgid "Name"
+msgstr "الإسم"
+
+#: training/templates/training/profile.html:20
+msgid "Email Address"
+msgstr "البريد الالكترونى"
+
+#: training/templates/training/profile.html:21
+msgid "Department"
+msgstr "التخصص"
+
+#: training/templates/training/profile.html:22
+msgid "Registered Trainings"
+msgstr "عدد التدريبات المسجلة"
+
+#: training_reg/settings.py:119
+msgid "English"
+msgstr ""
+
+#: training_reg/settings.py:120
+msgid "Arabic"
+msgstr ""
+
+#~ msgid "navbar-right"
+#~ msgstr "navbar-left"

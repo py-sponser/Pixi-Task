@@ -1,0 +1,33 @@
+.home_body{
+    font-family: 'Lucida Handwriting';
+    text-align: center;
+    margin-top: 105px;
+}
+.home_body img{
+    display: block;
+    width:200px;
+    margin: auto;
+}
+
+
+.footer_text_color, .footer_text_color:active{
+    color: #96292E;
+    font-weight: bolder;
+}
+
+.footer_text_color:hover{
+    color: #96292E;
+
+}
+
+footer{
+    position: absolute;
+    left: 0;
+    width:100%;
+    font-weight: bolder;
+    background-color:  #3b3b3b;
+}
+
+.home_text_spacing{
+    margin: 20px;
+}

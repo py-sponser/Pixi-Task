@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <div class="container home_body" style="max-height: 100%">
+        <h2 class="home_text_spacing">
+            {% trans "Hello" %} {{ user.username }}, {% trans "you are now a seller" %}
+
+
+            <br><br><br>
+                <h3 class="home_text_spacing">{% trans "Here's your dashboard!" %}</h3>
+        </h2>
+
+{% endblock %}

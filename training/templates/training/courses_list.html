@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <title>Courses</title>
+    <style>
+
+        .headers{
+            color:#96292E;
+            font-weight: bolder;
+        }
+    </style>
+    <div class="container-fluid" style="margin-top: 60px">
+        <div class="row">
+            {% for course in courses %}
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div class="card text-dark bg-light mb-3" style="max-width: 40rem;">
+                  <div class="card-header"><p class="head_colors"><span class="headers">Name:</span> {{ course.name }}</p></div>
+                  <div class="card-header"><p class="head_colors"><span class="headers">Provider:</span> {{ course.provider.name }}</p></div>
+                    <div class="card-header"><p class="head_colors"><span class="headers">Status:</span>
+                      {% if course.available %}
+                          <span class="badge bg-success">Available</span>
+                      {% else %}
+                          <span class="badge bg-danger">Closed</span>
+                      {% endif %}
+                  </p></div>
+
+                  <div class="card-header"><p class="head_colors"><span class="headers">Maximum students:</span> {{ course.max_student_numbers }}</p></div>
+                  <div class="card-header"><p class="head_colors"><span class="headers">Seats Left:</span> {{ course.get_course_seats_left }}</p></div>
+                  <div class="card-body" >
+                    <h5 class="card-title head_colors headers">Brief</h5>
+                    <pre class="card-text head_colors" style="text-align: justify">{{ course.brief }}</pre>
+                  </div>
+                  <div class="card-header">
+                      {% if user.is_authenticated %}
+                            {% if course.get_course_seats_left > 0 %}
+                                <button id="enroll" class="btn btn-success" onclick="enroll('{{ user.id }}', '{{ course.name }}')">Enroll</button>
+                            {% endif %}
+                      {% endif %}
+                      <a class="btn btn-secondary" href="{% url 'training:get_course_detail' course_name=course.name %}">Course Details</a>
+                  </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="{% static 'js/training/student_enrolls.js' %}">
+
+    </script>
+{% endblock %}

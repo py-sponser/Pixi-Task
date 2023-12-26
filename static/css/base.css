@@ -1,0 +1,25 @@
+body{
+    color: #96292E;
+}
+
+.home_text_color, .home_text_color.active{
+    color: #96292E;
+    margin: 20px;
+    font-weight: bolder;
+}
+.home_text_color:hover{
+    color: #96292E;
+    text-decoration: underline;
+}
+
+
+#courses-total{
+	display: inline-block;
+	color:white;
+    text-align: center;
+	background-color: #96292E;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	font-size: 14px;
+}

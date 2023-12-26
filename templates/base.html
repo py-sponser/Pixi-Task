@@ -1,0 +1,107 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US" dir="{% trans 'ltr' %}">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+
+   <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+      <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+      <script>
+          function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+const csrftoken = getCookie('csrftoken');
+      </script>
+  </head>
+  <body>
+    <div class="container-fluid" >
+      <nav class="navbar navbar-expand-lg  ">
+        <div class="container-fluid">
+
+          <button style="color:#96292E;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  mb-2 mb-lg-0 navbar-right">
+              <li class="nav-item" >
+                <a class="nav-link active home_text_color" aria-current="page" href="{% url 'home' %}">{% trans "Home"%}</a>
+              </li>
+
+              <li class="nav-item" >
+                <a class="nav-link active home_text_color" aria-current="page" href="{% url 'set_language' 'en' %}">{% trans "EN" %}</a>
+              </li>
+              <li class="nav-item" >
+                <a class="nav-link active home_text_color" aria-current="page" href="{% url 'set_language' 'ar' %}">{% trans "AR" %}</a>
+              </li>
+
+                {% if not user.logged_in_as_seller and user.is_authenticated %}
+              <li class="nav-item" >
+                <a class="nav-link active home_text_color" aria-current="page" href="{% url 'training:cart' %}">{% trans "Cart" %}</a>
+              </li>
+                {% endif %}
+
+            </ul>
+
+
+
+              <ul class="nav navbar-nav me-auto" style="">
+                  {% if user.is_authenticated %}
+                    {% if not user.is_staff or not user.is_superuser %}
+
+                        {% endif %}
+                      <li class="nav-item "><a class="nav-link home_text_color active" href="{% url 'training:get_profile_info' %}">{% trans "Profile" %}</a></li>
+                      <li class="nav-item">
+                        <form method="POST" action="{% url 'accounts:logout' %}">
+                                  {% csrf_token %}
+                                <input class="nav-link home_text_color active" style="border: none;background-color: white" type="submit" value="{% trans "Logout" %}" >
+                          </form>
+                      </li>
+                          {% else %}
+                              <li class="nav-item">
+                                <a class="nav-link active home_text_color" href="{% url 'accounts:user_login' %}">{% trans "Login" %}</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link active home_text_color" href="{% url 'accounts:register' %}">{% trans "Register" %}</a>
+                              </li>
+                          {% endif %}
+                      <!-- <li class="nav-item">
+                        <a class="nav-link disabled " href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                      </li> -->
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+
+    </div>
+
+    <div class="container-fluid" style="width:auto">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+  </body>
+</html>
+  

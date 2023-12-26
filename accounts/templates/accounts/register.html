@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+    <style>
+        form label{
+            margin: 3px;
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <div class="container text-center" style="text-align: center;width: 800px;">
+    <img class="mb-4 navbar-brand img-responsive edit" src="{% static 'images/logo.png' %}" alt="Brand Icon" height="150" >
+        <form method="POST" action="{% url 'accounts:register' %}" class="form-group text-center" id="register-form">
+            {% csrf_token %}
+        <label>
+          <input style="color:#96292E;text-decoration: none;outline: #96292E;box-shadow: none;border-color: #CED4DA" type="text" id="first_name" class="form-control  " placeholder="{% trans 'First Name' %}" required autofocus name="first_name">
+            </label>
+        <label>
+          <input style="color:#96292E;text-decoration: none;outline: #96292E;box-shadow: none;border-color: #CED4DA" type="text" id="last_name" class="form-control  " placeholder="{% trans 'Last Name' %}" required autofocus name="last_name">
+        </label>
+        <label>
+          <input style="color:#96292E;text-decoration: none;outline: #96292E;box-shadow: none;border-color: #CED4DA" type="text" id="family_name" class="form-control  " placeholder="{% trans 'Family Name' %}" required autofocus name="family_name">
+        </label><br><br>
+        <label>
+          <input style="color:#96292E;text-decoration: none;outline: #96292E;box-shadow: none;border-color: #CED4DA" type="email" id="email" class="form-control  " placeholder="{% trans 'Email address' %}" required autofocus name="email">
+        </label>
+        <label>
+          <input style="color:#96292E;text-decoration: none;outline: #96292E;box-shadow: none;border-color: #CED4DA" type="text" id="username" class="form-control  " placeholder="{% trans 'Username' %}" required autofocus name="username">
+        </label>
+        <br><br>
+        <label>
+            <input style="color:#96292E;text-decoration: none;outline: #96292E;box-shadow: none;border-color: #CED4DA" type="password" id="inputPassword" class="form-control form-group " placeholder="{% trans 'Password' %}" required name="password1">
+        </label>
+        <label>
+            <input style="color:#96292E;text-decoration: none;outline: #96292E;box-shadow: none;border-color: #CED4DA"  type="password" id="inputPassword" class="form-control form-group " placeholder="{% trans 'Verify password' %}" required name="password2">
+        </label>
+        <br><br>
+            <select style="outline: #96292E;box-shadow: none;border-color: #CED4DA" class="form-select" aria-label="Default select example" form="register-form" name="department" required>
+              <option selected>{% trans "Select Department" %}</option>
+                {% for department in departments %}
+              <option value="{{ department.name }}">{{ department.name }}</option>
+                {% endfor %}
+            </select>
+
+            <br>
+        {% for requirement in requirements %}
+            <p style="text-align: center;">{{ requirement }}</p>
+        {% endfor %}
+
+      <button style="box-shadow: none; outline-color:#96292E;width: 150px" class="btn btn-secondary " type="submit">{% trans 'Register' %}</button>
+        <br><br><br><br>
+        </form>
+    {% include 'messages.html' %}
+    </div>
+{% endblock %}
